@@ -61,11 +61,26 @@ const app = express();
                 //   }
 
             
-            // Request Parameters
+            // Dynamic Routing 
                 app.use("/users/:userId/password/:password", (req, res) => {
                     res.send(req.params);
                 }
             );
+
+            // Test Case 1 : localhost:7777/users/100/password/200/300/400
+            // Response    : 
+            // {
+            //     "userId": "100",
+            //     "password": "200"
+            // }
+
+
+            // Test Case 2 : localhost:7777/users/100/200/password/200
+            // Response : 
+            //            Cannot GET /users/100/200password/200
+            // Status 404 : Status not found 
+            //   
+
 
 
 app.listen(7777, () => {
